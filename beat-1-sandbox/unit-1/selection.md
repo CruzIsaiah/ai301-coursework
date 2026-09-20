@@ -19,121 +19,59 @@ https://github.com/codepath/pathreview-ai301-fa26-s1/issues/53
 
 **Verdict output**
 
-Accepted, in fit order
+All three candidates are in the scoped repo `codepath/pathreview-ai301-fa26-s1`, so all three are valid candidates. Repo-level evidence is shared across them; scope and claim evidence is gathered per-issue.
 
-1. #53 — PII scrubber fails to redact parenthesized US phone numbers. Best fit: it ships a copy-pasteable Python reproduction with observed-vs-expected output and names the four failing tests (test_us_phone_number_redaction, test_us_phone_formats, test_detect_phone_pii, test_phone_at_start_of_text), which is exactly the "reproduce locally and verify with tests" profile. Single-regex surface area, and the timeline shows no one has touched it at all.
-2. #72 — verify_password raises UnknownHashError on malformed hashes. Smallest estimate (1–2 hours), two named files, and an unambiguous target behavior (fail closed, return False). API-area work matches the profile; slightly behind #53 only because it carries no reproduction snippet.
-3. #68 — Keyword search ZeroDivisionError when the index is empty. Still well-bounded, but the largest estimate (2–4 hours) and the fix sits against third-party rank-bm25 behavior rather than purely local code.
+**Repo-level facts gathered**
+- `archived=false`; last push to any branch 2026-09-16
+- Last `main` commit `f89c06f` by `Aburke225` (Andrew Burke), 2026-09-16 — human-authored, 4 days before this run
+- No releases exist, so the repo-activity check rests on the commit leg
+- `Aburke225` (COLLABORATOR) posted issue comments on 2026-09-16
+- Zero pull requests exist in the repo, open or closed
+- `docs/CONTRIBUTING.md` and `.github/PULL_REQUEST_TEMPLATE.md` state no AI policy either way
 
-Per-check notes. The only wrinkle was claim evidence on #68 and #72: each has a referenced timeline event from a classmate's fork commit (yulijasso 2026-09-16 on #68, newairforces 2026-09-19 on #72). Neither is an assignee, an open PR, or even a claim comment — and the Path Review house rule in scope.md says classmate claims don't block an issue regardless. Both pass.
+**Accepted, in fit order**
+
+1. **#53 — PII scrubber fails to redact parenthesized US phone numbers.** Best fit: it ships a copy-pasteable Python reproduction with observed-vs-expected output and names the four covering tests (`test_us_phone_number_redaction`, `test_us_phone_formats`, `test_detect_phone_pii`, `test_phone_at_start_of_text`), which is exactly the "reproduce locally and verify with tests" profile. Single-regex surface area, and the timeline shows nobody has touched it at all.
+2. **#72 — `verify_password` raises `UnknownHashError` on malformed stored hashes.** Smallest estimate (1–2 hours), two named files, and an unambiguous target behavior (fail closed, return `False`). API-area work matches the profile; it sits behind #53 only because it carries no reproduction snippet.
+3. **#68 — Keyword search raises `ZeroDivisionError` when the index is empty.** Still well-bounded, but the largest estimate (2–4 hours), and the fix sits against third-party `rank-bm25` behavior rather than purely local code.
+
+**Per-check notes.** The only wrinkle was claim evidence on #72 and #68: each carries a `referenced` timeline event from a classmate's own fork commit (`newairforces` 2026-09-19 on #72, `yulijasso` 2026-09-16 on #68). Neither is an assignee, an open PR, or even a claim comment — and the Path Review house rule in `scope.md` says classmate claims do not block an issue regardless. Both pass.
 
 ```json
 [
   {
     "item": "https://github.com/codepath/pathreview-ai301-fa26-s1/issues/53",
     "checks": [
-      {
-        "name": "Maintainer activity",
-        "grade": "pass",
-        "evidence": "Human commit f89c06f by Aburke225 on main 2026-09-16 (4 days ago), plus COLLABORATOR comments by Aburke225 on 2026-09-16."
-      },
-      {
-        "name": "Repository is active",
-        "grade": "pass",
-        "evidence": "archived=false; no releases exist, but human-authored main commit 2026-09-16 is within 90 days."
-      },
-      {
-        "name": "Issue is appropriately scoped for a newcomer",
-        "grade": "pass",
-        "evidence": "Settled specific change: phone pattern 'matches dashed formats like 555-123-4567 but not the parenthesized format (555) 123-4567', with a runnable repro and four named failing tests."
-      },
-      {
-        "name": "Issue is not already actively claimed",
-        "grade": "pass",
-        "evidence": "assignees: none; repo has zero PRs; 0 comments and no referenced/cross-referenced events on the timeline."
-      },
-      {
-        "name": "AI-assisted contributions are permitted",
-        "grade": "pass",
-        "evidence": "docs/CONTRIBUTING.md and .github/PULL_REQUEST_TEMPLATE.md contain no AI-use prohibition; repo is silent on AI."
-      },
-      {
-        "name": "Newcomer-fit signals",
-        "grade": "pass",
-        "evidence": "Labeled 'good first issue' and 'tier-1'; issue opened by COLLABORATOR Aburke225 with explicit reproduction steps and named covering tests."
-      }
+      {"name": "Maintainer activity", "grade": "pass", "evidence": "Human-authored main commit f89c06f by Aburke225 on 2026-09-16, plus COLLABORATOR issue comments by Aburke225 on 2026-09-16."},
+      {"name": "Repository is active", "grade": "pass", "evidence": "archived=false; no releases exist, but the human-authored main commit of 2026-09-16 is within 90 days."},
+      {"name": "Issue is appropriately scoped for a newcomer", "grade": "pass", "evidence": "Settled specific change: the pattern 'matches dashed formats like 555-123-4567 but not the parenthesized format (555) 123-4567', with a runnable repro and four named covering tests."},
+      {"name": "Issue is not already actively claimed", "grade": "pass", "evidence": "assignees: none; repo has zero PRs; 0 comments and no referenced or cross-referenced events on the timeline."},
+      {"name": "AI-assisted contributions are permitted", "grade": "pass", "evidence": "docs/CONTRIBUTING.md and .github/PULL_REQUEST_TEMPLATE.md contain no AI-use prohibition; the repo is silent on AI."},
+      {"name": "Newcomer-fit signals", "grade": "pass", "evidence": "Labeled 'good first issue' and 'tier-1'; opened by COLLABORATOR Aburke225 with explicit reproduction steps and named covering tests."}
     ],
     "verdict": "accept"
   },
   {
     "item": "https://github.com/codepath/pathreview-ai301-fa26-s1/issues/72",
     "checks": [
-      {
-        "name": "Maintainer activity",
-        "grade": "pass",
-        "evidence": "Human commit f89c06f by Aburke225 on main 2026-09-16 (4 days ago), plus COLLABORATOR comments by Aburke225 on 2026-09-16."
-      },
-      {
-        "name": "Repository is active",
-        "grade": "pass",
-        "evidence": "archived=false; no releases exist, but human-authored main commit 2026-09-16 is within 90 days."
-      },
-      {
-        "name": "Issue is appropriately scoped for a newcomer",
-        "grade": "pass",
-        "evidence": "Settled specific change: 'Verification against a malformed hash should fail closed (return False), not raise'; files core/security.py and tests/unit/test_security.py; est. 1-2 hours."
-      },
-      {
-        "name": "Issue is not already actively claimed",
-        "grade": "pass",
-        "evidence": "assignees: none; repo has zero PRs; only a 'referenced' event from newairforces' own fork commit 2026-09-19, which the scope.md Path Review house rule says does not block."
-      },
-      {
-        "name": "AI-assisted contributions are permitted",
-        "grade": "pass",
-        "evidence": "docs/CONTRIBUTING.md and .github/PULL_REQUEST_TEMPLATE.md contain no AI-use prohibition; repo is silent on AI."
-      },
-      {
-        "name": "Newcomer-fit signals",
-        "grade": "pass",
-        "evidence": "Labeled 'good first issue' and 'tier-1'; COLLABORATOR-authored with named files, effort estimate, and an explicit acceptance step (remove the H-05 xfail marker)."
-      }
+      {"name": "Maintainer activity", "grade": "pass", "evidence": "Human-authored main commit f89c06f by Aburke225 on 2026-09-16, plus COLLABORATOR issue comments by Aburke225 on 2026-09-16."},
+      {"name": "Repository is active", "grade": "pass", "evidence": "archived=false; no releases exist, but the human-authored main commit of 2026-09-16 is within 90 days."},
+      {"name": "Issue is appropriately scoped for a newcomer", "grade": "pass", "evidence": "Settled specific change: 'Verification against a malformed hash should fail closed (return False), not raise'; files core/security.py and tests/unit/test_security.py; est. 1-2 hours."},
+      {"name": "Issue is not already actively claimed", "grade": "pass", "evidence": "assignees: none; repo has zero PRs; only a 'referenced' event from newairforces' own fork commit on 2026-09-19, which the scope.md Path Review house rule says does not block."},
+      {"name": "AI-assisted contributions are permitted", "grade": "pass", "evidence": "docs/CONTRIBUTING.md and .github/PULL_REQUEST_TEMPLATE.md contain no AI-use prohibition; the repo is silent on AI."},
+      {"name": "Newcomer-fit signals", "grade": "pass", "evidence": "Labeled 'good first issue' and 'tier-1'; COLLABORATOR-authored with named files, an effort estimate, and an explicit acceptance step (remove the H-05 xfail marker)."}
     ],
     "verdict": "accept"
   },
   {
     "item": "https://github.com/codepath/pathreview-ai301-fa26-s1/issues/68",
     "checks": [
-      {
-        "name": "Maintainer activity",
-        "grade": "pass",
-        "evidence": "Human commit f89c06f by Aburke225 on main 2026-09-16 (4 days ago), plus COLLABORATOR comments by Aburke225 on 2026-09-16."
-      },
-      {
-        "name": "Repository is active",
-        "grade": "pass",
-        "evidence": "archived=false; no releases exist, but human-authored main commit 2026-09-16 is within 90 days."
-      },
-      {
-        "name": "Issue is appropriately scoped for a newcomer",
-        "grade": "pass",
-        "evidence": "Settled specific change: \"index() shouldn't raise on an empty corpus either\"; files rag/retriever/keyword_search.py and tests/unit/test_keyword_search.py; est. 2-4 hours."
-      },
-      {
-        "name": "Issue is not already actively claimed",
-        "grade": "pass",
-        "evidence": "assignees: none; repo has zero PRs; only a 'referenced' event from yulijasso's own fork commit 2026-09-16, which the scope.md Path Review house rule says does not block."
-      },
-      {
-        "name": "AI-assisted contributions are permitted",
-        "grade": "pass",
-        "evidence": "docs/CONTRIBUTING.md and .github/PULL_REQUEST_TEMPLATE.md contain no AI-use prohibition; repo is silent on AI."
-      },
-      {
-        "name": "Newcomer-fit signals",
-        "grade": "pass",
-        "evidence": "Labeled 'good first issue' and 'tier-1'; COLLABORATOR-authored with named files, effort estimate, and an explicit acceptance step (remove the H-01 xfail marker)."
-      }
+      {"name": "Maintainer activity", "grade": "pass", "evidence": "Human-authored main commit f89c06f by Aburke225 on 2026-09-16, plus COLLABORATOR issue comments by Aburke225 on 2026-09-16."},
+      {"name": "Repository is active", "grade": "pass", "evidence": "archived=false; no releases exist, but the human-authored main commit of 2026-09-16 is within 90 days."},
+      {"name": "Issue is appropriately scoped for a newcomer", "grade": "pass", "evidence": "Settled specific change: \"index() shouldn't raise on an empty corpus either\"; files rag/retriever/keyword_search.py and tests/unit/test_keyword_search.py; est. 2-4 hours."},
+      {"name": "Issue is not already actively claimed", "grade": "pass", "evidence": "assignees: none; repo has zero PRs; only a 'referenced' event from yulijasso's own fork commit on 2026-09-16, which the scope.md Path Review house rule says does not block."},
+      {"name": "AI-assisted contributions are permitted", "grade": "pass", "evidence": "docs/CONTRIBUTING.md and .github/PULL_REQUEST_TEMPLATE.md contain no AI-use prohibition; the repo is silent on AI."},
+      {"name": "Newcomer-fit signals", "grade": "pass", "evidence": "Labeled 'good first issue' and 'tier-1'; COLLABORATOR-authored with named files, an effort estimate, and an explicit acceptance step (remove the H-01 xfail marker)."}
     ],
     "verdict": "accept"
   }
