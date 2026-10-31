@@ -55,10 +55,16 @@ happened; these entries are the toolkit's own timeline.
 All four entries are graded. Keep every heading below, and fill each
 one in the week it belongs to.
 
-**Unit 5: [one line on the tool work]**
+**Unit 5: Built and tuned an issue-scout skill to find first issues on GitHub**
 
-[2-4 sentences: what you built (the scout, your strategy), what broke
-or fell short, what changed because of it.]
+I built an `issue-scout` skill that searches GitHub for recent Python
+issues labeled `good first issue`. My first scan was too broad and
+included assigned issues and candidates that were not very useful for
+a first contribution. I tightened the ranking to drop assigned
+issues, keep only issues updated in the last 60 days, put bug and
+testing labels first, prefer fewer comments and more recent updates,
+and allow at most two issues per repository. The final scan on
+October 28 graded 5 issues against my rubric, and all 5 were accepted.
 
 **Unit 6: [one line on the tool work]**
 
